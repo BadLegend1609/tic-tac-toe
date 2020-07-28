@@ -6,18 +6,14 @@ import Box from './box';
 function Board() {
 	const [player, setPlayer] = useState(true);
 
-	const togglePlayer = (e) => {
+	const togglePlayer = () => {
 		setPlayer(!player);
-		console.log(e);
 	};
 	let boxes = [];
 	for (let i = 0; i < 9; i++) {
-		boxes.push(<Box player={player} key={i} onChange={togglePlayer} />);
+		boxes.push(<Box player={player} id={i} key={i} onChange={togglePlayer} />);
 	}
 
-	///////////////////////////Game checker///////////////////////
-
-	//////////////////////////Checek End//////////////////////////
 	return (
 		<div>
 			<div className='board'>{boxes.map((i) => i)}</div>
